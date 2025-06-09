@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Cart</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="books.html">BookStore</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="home.html">Back to Store</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Cart Details -->
+  <div class="container my-5">
+    <h2>Your Cart</h2>
+    <div id="cartDetails"><!-- Cart details will be populated here --></div>
+    <div class="d-flex justify-content-between mt-4">
+      <button class="btn btn-danger" onclick="clearCart()">Clear Cart</button>
+      <button class="btn btn-success" onclick="proceedToCheckout()">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    function updateCart() {
+      let cartDetails;
+      try {
+        cartDetails = JSON.parse(localStorage.getItem('cart')) || [];
+        if (!Array.isArray(cartDetails)) {
+          cartDetails = [];
+        }
+      } catch (error) {
+        cartDetails = [];
+      }
+
+      const cartDiv = document.getElementById('cartDetails');
+
+      if (cartDetails.length === 0) {
+        cartDiv.innerHTML = '<p>No items in your cart.</p>';
+        return;
+      }
+
+      let cartHTML = '';
+      let total = 0;
+
+      cartDetails.forEach((item, index) => {
+        total += item.price * item.quantity;
+        cartHTML += `
+          <div class="cart-item mb-3 p-3 border rounded">
+            <p><strong>Book Title:</strong> ${item.title}</p>
+            <p><strong>Price:</strong> $${item.price.toFixed(2)}</p>
+            <p><strong>Quantity:</strong> ${item.quantity}</p>
+            <button class="btn btn-warning" onclick="removeFromCart(${index})">Remove</button>
+          </div>
+        `;
+      });
+
+      cartHTML += `<hr><h4>Total: $${total.toFixed(2)}</h4>`;
+      cartDiv.innerHTML = cartHTML;
+    }
+
+    function removeFromCart(index) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert('Item has been removed from your cart!');
+      updateCart();
+    }
+
+    function clearCart() {
+      localStorage.removeItem('cart');
+      alert('Your cart has been cleared!');
+      updateCart();
+    }
+
+    function proceedToCheckout() {
+      alert('Proceeding to checkout...');
+      window.location.href = 'payment.html'; // Redirect to payment page
+    }
+
+    // Load cart on page load
+    updateCart();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

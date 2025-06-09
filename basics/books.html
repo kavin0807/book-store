@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Store - Categories</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .video-container {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .video-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Navbar brand */
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* Logo image with hover effect */
+    .logo {
+      height: 70px;
+      width: auto;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .logo:hover {
+      transform: scale(1.1);
+    }
+
+    section {
+      padding: 60px 0;
+    }
+
+    h2 {
+      color: #390303be;
+      font-weight: 600;
+    }
+
+    .book-card {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .book-card:hover {
+      transform: scale(1.05);
+    }
+
+    .book-card img {
+      height: 400px;
+      object-fit: cover;
+    }
+
+    footer {
+      background: linear-gradient(135deg, #1b1b1b, #2c2c2c);
+      color: #ddd;
+      padding: 20px 0;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    footer a {
+      color: #ffc107;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #ffa000;
+      text-decoration: underline;
+    }
+
+    .footer-logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: #ffc107;
+    }
+
+    .footer-quick-links ul {
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .footer-quick-links li {
+      margin-bottom: 6px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #444;
+      padding-top: 10px;
+      margin-top: 10px;
+      font-size: 0.85rem;
+      color: #999;
+    }
+
+    @media (max-width: 576px) {
+      footer .row > div {
+        margin-bottom: 15px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <div class="video-container">
+    <video autoplay muted loop>
+      <source src="video1.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="logo.png" alt="BookStore Logo" class="logo" />
+        BookStore
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#programming">Programming</a></li>
+          <li class="nav-item"><a class="nav-link" href="#web-dev">Web Development</a></li>
+          <li class="nav-item"><a class="nav-link" href="#data-science">Data Science</a></li>
+          <li class="nav-item"><a class="nav-link" href="#others">Other Topics</a></li>
+          <li class="nav-item"><a class="nav-link" href="home.html">Back</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Book Sections -->
+
+  <!-- Programming -->
+  <section id="programming">
+    <div class="container">
+      <h2 class="text-center mb-5">Programming Books</h2>
+      <div class="row g-4">
+        <!-- Java -->
+        <div class="col-md-4">
+          <div class="card book-card">
+            <img src="https://5.imimg.com/data5/SELLER/Default/2023/10/351482497/SG/FQ/EG/150254197/79.png" class="card-img-top" alt="Java" />
+            <div class="card-body">
+              <h5 class="card-title">Java Programming</h5>
+              <p class="card-text">Learn the essentials of Java programming from basics to advanced concepts.</p>
+              <a href="javabook.html" class="btn btn-primary">Buy Now</a>
+            </div>
+          </div>
+        </div>
+        <!-- Python -->
+        <div class="col-md-4">
+          <div class="card book-card">
+            <img src="https://dd9xtpjstvsy0.cloudfront.net/production/images/ebook/python-basic/ebook.png" class="card-img-top" alt="Python" />
+            <div class="card-body">
+              <h5 class="card-title">Python Basics</h5>
+              <p class="card-text">A beginner-friendly guide to Python with hands-on exercises.</p>
+              <a href="pythonbook.html" class="btn btn-primary">Buy Now</a>
+            </div>
+          </div>
+        </div>
+        <!-- C++ -->
+        <div class="col-md-4">
+          <div class="card book-card">
+            <img src="https://5.imimg.com/data5/SELLER/Default/2023/10/351590481/MS/DZ/VY/150254197/c-programming-language-2023-500x500.png" class="card-img-top" alt="C++" />
+            <div class="card-body">
+              <h5 class="card-title">C++ Mastery</h5>
+              <p class="card-text">Master C++ programming with this in-depth guide and complex methods.</p>
+              <a href="c++book.html" class="btn btn-primary">Buy Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Web Development -->
+  <section id="web-dev">
+    <div class="container">
+      <h2 class="text-center mb-5">Web Development Books</h2>
+      <div class="row g-4">
+        <!-- HTML & CSS -->
+        <div class="col-md-4">
+          <div class="card book-card">
+            <img src="https://images-platform.99static.com/2-u0Yr9ecBzXeGiny62ztnxj-vE=/0x41:891x932/500x500/top/smart/99designs-contests-attachments/97/97407/attachment_97407851" class="card-img-top" alt="HTML CSS" />
+            <div class="card-body">
+              <h5 class="card-title">HTML & CSS</h5>
+              <p class="card-text">Learn how to design beautiful and responsive websites.</p>
+              <a href="Html&css.html" class="btn btn-primary">Buy Now</a>
+            </div>
+          </div>
+        </div>
+        <!-- JavaScript -->
+        <div class="col-md-4">
+          <div class="card book-card">
+            <img src="https://capetown-books.nop-station.com/images/thumbs/0000384_javascript-the-good-parts.webp" class="card-img-top" alt="JavaScript" />
+            <div class="card-body">
+              <h5 class="card-title">JavaScript: The Good Parts</h5>
+              <p class="card-text">Explore the best practices and hidden gems of JavaScript.</p>
+              <a href="jsbook.html" class="btn btn-primary">Buy Now</a>
+            </div>
+          </div>
+        </div>
+        <!-- React -->
+        <div class="col-md-4">
+          <div class="card book-card">
+            <img src="https://s3-eu-west-1.amazonaws.com/cover2.galileo-press.de/print/9781493224401_800.png" class="card-img-top" alt="React" />
+            <div class="card-body">
+              <h5 class="card-title">React Explained</h5>
+              <p class="card-text">A comprehensive guide to building dynamic UIs with React.</p>
+              <a href="react.html" class="btn btn-primary">Buy Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Data Science -->
+  <section id="data-science">
+    <div class="container">
+      <h2 class="text-center mb-5">Data Science Books</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card book-card">
+            <img src="https://authorsclick.com/wp-content/uploads/2024/12/1734089383.png" class="card-img-top" alt="DS" />
+            <div class="card-body">
+              <h5 class="card-title">Data Science Handbook</h5>
+              <p class="card-text">An essential guide to data analysis, machine learning, and AI.</p>
+              <a href="data science.html" class="btn btn-primary">Buy Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card book-card">
+            <img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1564719443l/50052722._SX0_SY0_.jpg" class="card-img-top" alt="ML" />
+            <div class="card-body">
+              <h5 class="card-title">Machine Learning with Python</h5>
+              <p class="card-text">Dive deep into machine learning algorithms and projects.</p>
+              <a href="ML book.html" class="btn btn-primary">Buy Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card book-card">
+            <img src="https://www.madrasshoppe.com/34639-large_default/big-data-analytics-2ed-radha-shankarmani.jpg" class="card-img-top" alt="Big Data" />
+            <div class="card-body">
+              <h5 class="card-title">Big Data Analytics</h5>
+              <p class="card-text">Understand big data concepts and tools in real-world applications.</p>
+              <a href="big data.html" class="btn btn-primary">Buy Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Other Topics -->
+  <section id="others">
+    <div class="container">
+      <h2 class="text-center mb-5">Other Topics</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card book-card">
+            <img src="https://cdn.dribbble.com/users/10507348/screenshots/19841872/media/ad45731fc9427dcd4a95408a6a93915b.jpg" class="card-img-top" alt="Psychology" />
+            <div class="card-body">
+              <h5 class="card-title">Human Psychology</h5>
+              <p class="card-text">Unlock the mind to better understand yourself and others.</p>
+              <a href="human psycology.html" class="btn btn-primary">Buy Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card book-card">
+            <img src="https://images.squarespace-cdn.com/content/v1/60204f923f51f617d952e874/1633724249504-Z6PGCRO6MVDAFBRKPMCK/BOOK_GVT_BLITT1.png?format=1500w" class="card-img-top" alt="Leadership" />
+            <div class="card-body">
+              <h5 class="card-title">Leadership in Action</h5>
+              <p class="card-text">Learn how to lead teams and organizations effectively.</p>
+              <a href="leadership book.html" class="btn btn-primary">Buy Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card book-card">
+            <img src="https://static.wixstatic.com/media/d80e2c_33e369e6ccda41f591664bf4636bff4d~mv2.jpeg/v1/fill/w_980,h_653,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/d80e2c_33e369e6ccda41f591664bf4636bff4d~mv2.jpeg" class="card-img-top" alt="Mindfulness" />
+            <div class="card-body">
+              <h5 class="card-title">Mindfulness & Focus</h5>
+              <p class="card-text">Discover techniques to enhance your focus and live in the moment.</p>
+              <a href="mindfulness.html" class="btn btn-primary">Buy Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 footer-logo-section">
+          <p class="footer-logo">BookStore</p>
+          <p>Your one-stop shop for all kinds of books online!</p>
+        </div>
+        <div class="col-md-6 footer-quick-links">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="#programming">Programming</a></li>
+            <li><a href="#web-dev">Web Development</a></li>
+            <li><a href="#data-science">Data Science</a></li>
+            <li><a href="#others">Other Topics</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 BookStore | Designed by Aki & Hinata 💫</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

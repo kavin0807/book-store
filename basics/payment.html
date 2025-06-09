@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bookstore Payment</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f9f9fb;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .payment-container {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    max-width: 480px;
+    width: 100%;
+    opacity: 1;
+    transition: opacity 0.8s ease;
+  }
+
+  h2 {
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: #222;
+    text-align: center;
+  }
+
+  /* Payment Methods */
+  .payment-methods {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+
+  .payment-methods input[type="radio"] {
+    display: none;
+  }
+
+  .payment-methods label {
+    cursor: pointer;
+    position: relative;
+    border: 2px solid transparent;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: border-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 100px;
+  }
+
+  .payment-methods label:hover {
+    border-color: #2575fc;
+  }
+
+  .payment-methods input[type="radio"]:checked + label {
+    border-color: #2575fc;
+    background: #e6f0ff;
+  }
+
+  /* Icons inside payment options */
+  .payment-methods label svg {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+
+  /* Form */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="tel"],
+  select {
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: 1.8px solid #ddd;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+    width: 100%;
+  }
+
+  input[type="text"]:focus,
+  input[type="number"]:focus,
+  input[type="email"]:focus,
+  input[type="tel"]:focus,
+  select:focus {
+    border-color: #2575fc;
+    outline: none;
+  }
+
+  .card-row {
+    display: flex;
+    gap: 15px;
+  }
+
+  .card-row > div {
+    flex: 1;
+  }
+
+  button {
+    background: #2575fc;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background: #1a54d1;
+  }
+
+  @media (max-width: 480px) {
+    .card-row {
+      flex-direction: column;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="payment-container">
+  <h2>Bookstore Payment</h2>
+
+  <!-- Payment Methods -->
+  <div class="payment-methods">
+    <input type="radio" id="card" name="payment-method" value="card" checked />
+    <label for="card" title="Credit/Debit Card">
+      <!-- Card Icon (simplified) -->
+      <svg viewBox="0 0 48 32" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="48" height="32" rx="6" fill="#2575fc"/>
+        <rect x="6" y="8" width="36" height="16" rx="2" fill="#fff"/>
+        <rect x="6" y="16" width="12" height="4" fill="#2575fc"/>
+      </svg>
+      Card
+    </label>
+
+    <input type="radio" id="gpay" name="payment-method" value="gpay" />
+    <label for="gpay" title="Google Pay">
+      <!-- Google Pay Icon -->
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M44 24c0-3.21-.9-6.17-2.45-8.7H24v10.41h11.84c-.5 2.7-2.64 4.99-5.61 5.82v4.83h9.06c5.3-4.88 8.7-12.06 8.7-21.36z" fill="#4285F4"/>
+        <path d="M24 44c6.2 0 11.4-2.04 15.2-5.55l-7.27-5.65c-2 1.3-4.58 2.1-7.93 2.1-6.1 0-11.27-4.12-13.13-9.63H3.2v6.06A20 20 0 0024 44z" fill="#34A853"/>
+        <path d="M10.87 27.3a12.04 12.04 0 010-6.6v-6.07H3.2a20 20 0 000 18.74l7.67-6.07z" fill="#FBBC05"/>
+        <path d="M24 14.6c3.35 0 6.36 1.15 8.72 3.38l6.53-6.53A19.896 19.896 0 0024 6a20 20 0 00-16.8 10.74l7.67 6.06c1.86-5.5 7.03-9.2 9.13-8.2z" fill="#EA4335"/>
+      </svg>
+      GPay
+    </label>
+
+    <input type="radio" id="phonepe" name="payment-method" value="phonepe" />
+    <label for="phonepe" title="PhonePe">
+      <!-- PhonePe Icon -->
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="48" height="48" rx="8" fill="#3E52A1"/>
+        <path d="M23 12h-7v24h7c7 0 10-7 7-12s-4-12-7-12z" fill="white"/>
+        <path d="M20 26h3v-8h-3v8z" fill="#3E52A1"/>
+      </svg>
+      PhonePe
+    </label>
+
+    <input type="radio" id="paytm" name="payment-method" value="paytm" />
+    <label for="paytm" title="Paytm">
+      <!-- Paytm Icon -->
+      <svg viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="48" height="32" rx="6" fill="#0050FF"/>
+        <path d="M10 10v12h5v-3h-2v-1h2v-2h-5v-6zM22 10v12h5v-3h-2v-1h2v-2h-5v-6zM32 15h4v-1h-6v8h6v-1h-4v-6z" fill="#fff"/>
+      </svg>
+      Paytm
+    </label>
+  </div>
+
+  <form id="payment-form" autocomplete="off" novalidate>
+    <div>
+      <label for="name">Name on Card</label>
+      <input type="text" id="name" name="name" placeholder="Full Name" required />
+    </div>
+
+    <div>
+      <label for="cardnumber">Card Number</label>
+      <input type="text" id="cardnumber" name="cardnumber" inputmode="numeric" pattern="[0-9\s]{13,19}" maxlength="19" placeholder="1234 5678 9012 3456" required />
+    </div>
+
+    <div class="card-row">
+      <div>
+        <label for="expiry">Expiry Date</label>
+        <input type="text" id="expiry" name="expiry" placeholder="MM/YY" pattern="(0[1-9]|1[0-2])\/?([0-9]{2})" maxlength="5" required />
+      </div>
+      <div>
+        <label for="cvv">CVV</label>
+        <input type="number" id="cvv" name="cvv" placeholder="123" min="100" max="9999" required />
+      </div>
+    </div>
+
+    <div>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+    </div>
+
+    <button type="submit">Pay Now</button>
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById('payment-form');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const selectedMethod = document.querySelector('input[name="payment-method"]:checked').value;
+   if (selectedMethod !== 'card' && selectedMethod !== 'Paytm' && selectedMethod !== 'GPay' && selectedMethod !== 'PhonePe') {
+      alert(`You selected ${selectedMethod.toUpperCase()}. Redirecting to that payment gateway...`);
+      form.reset();
+      return;
+    }
+
+    const cardNumber = form.cardnumber.value.replace(/\s+/g, '');
+    if (!/^\d{13,19}$/.test(cardNumber)) {
+      alert('Please enter a valid card number (13 to 19 digits).');
+      form.cardnumber.focus();
+      return;
+    }
+
+    const expiry = form.expiry.value;
+    if (!/^(0[1-9]|1[0-2])\/?([0-9]{2})$/.test(expiry)) {
+      alert('Expiry date must be in MM/YY format.');
+      form.expiry.focus();
+      return;
+    }
+
+    const cvv = form.cvv.value;
+    if (!/^\d{3,4}$/.test(cvv)) {
+      alert('CVV must be 3 or 4 digits.');
+      form.cvv.focus();
+      return;
+    }
+
+    // Fade out the payment container before redirecting
+    const container = document.querySelector('.payment-container');
+    container.style.opacity = '0';
+
+    setTimeout(() => {
+      window.location.href = "thankyou.html"; // Redirect to thank you page
+    }, 800);
+  });
+</script>
+
+</body>
+</html>

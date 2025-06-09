@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BookStore</title>
+  
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+    crossorigin="anonymous"
+  />
+
+  <style>
+    /* Only logo CSS updated here */
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #fff;
+      text-decoration: none;
+    }
+    .navbar-brand:hover,
+    .navbar-brand:focus {
+      color: #f8f9fa;
+      text-decoration: none;
+    }
+
+    .logo {
+      height: 60px;
+      width: auto;
+      margin-right: 12px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .logo:hover {
+      transform: scale(1.1);
+    }
+
+    /* Rest CSS same as before */
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .hero video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-align: center;
+      padding: 0 1rem;
+      max-width: 800px;
+    }
+    .content h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    }
+    .content p {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      font-weight: 500;
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Transparent grey button */
+    .btn-explore {
+      background-color: rgba(250, 229, 179, 0.477);
+      border: 2px solid rgba(250, 229, 179, 0.477);
+      color: rgba(0, 0, 0, 0.7);
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+    .content a {
+      text-decoration: none;
+      display: inline-block;
+      color: #fff;
+      font-size: 24px;
+      border: 2px solid #fff;
+      padding: 14px 70px;
+      border-radius: 50px;
+      margin-top: 20px;
+      background-color: transparent;
+      transition: background-color 0.3s ease;
+    }
+    /* Change to light ash color on hover */
+    .content a:hover {
+      background-color: rgba(211, 211, 211, 0.5);
+    }
+    /* Slightly darker ash color on click */
+    .content a:active {
+      background-color: rgba(169, 169, 169, 0.7);
+    }
+    /* Button enhancement on hover */
+    .btn-explore:hover {
+      background-color: rgba(169, 169, 169, 0.7);
+      border: 2px solid rgba(169, 169, 169, 0.7);
+      color: rgb(29, 26, 26);
+    }
+
+    /* Navbar background */
+    nav.navbar {
+      background-color: #212529;
+    }
+    .navbar-nav .nav-link {
+      color: #ddd;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.5rem 1rem;
+      transition: color 0.3s ease;
+    }
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link:focus {
+      color: #f8f9fa;
+    }
+    .navbar-dark .navbar-toggler-icon {
+      filter: brightness(0) invert(1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar / Header -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a href="home.html" class="navbar-brand">
+        <img src="logo.png" alt="BookStore Logo" class="logo" />
+        BookStore
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a href="home.html" class="nav-link">HOME</a></li>
+          <li class="nav-item"><a href="cart.html" class="nav-link">CART</a></li>
+          <li class="nav-item"><a href="reviews.html" class="nav-link">REVIEWS</a></li>
+          <li class="nav-item"><a href="login.html" class="nav-link">LOGIN</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <video autoplay loop muted playsinline>
+      <source src="video1.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="content">
+      <h1>Welcome to BookStore</h1>
+      <p>Your ultimate destination for books of all genres.</p>
+      <a href="login.html" class="btn-explore">Explore</a>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS Bundle -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>
