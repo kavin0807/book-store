@@ -19,6 +19,7 @@ A visually engaging and modern **Book Store** front-end project built using **HT
 - HTML5  
 - CSS3  
 - Bootstrap 5
+- Java script
 
 ---
 
